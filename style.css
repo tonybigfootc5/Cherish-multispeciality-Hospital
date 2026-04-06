@@ -766,6 +766,18 @@ select:-webkit-autofill {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
+.navbar:not(.scrolled) .nav-actions .btn-accent {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    backdrop-filter: blur(8px);
+}
+
+.navbar:not(.scrolled) .nav-actions .btn-accent:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #fff;
+}
+
 .navbar:not(.scrolled) .profile-toggle {
     color: #fff;
     border-color: rgba(255, 255, 255, 0.25);
