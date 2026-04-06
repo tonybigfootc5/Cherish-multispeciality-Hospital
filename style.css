@@ -678,17 +678,61 @@ select:-webkit-autofill {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: var(--nav-bg);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    border-bottom: 1px solid var(--glass-border);
+    background: transparent;
+    border-bottom: 1px solid transparent;
     height: var(--nav-height);
     transition: all var(--transition);
 }
 
 .navbar.scrolled {
     background: var(--nav-bg-scrolled);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom-color: var(--glass-border);
     box-shadow: none;
+}
+
+/* Navbar over hero (not scrolled) — white text/icons */
+.navbar:not(.scrolled) .nav-logo {
+    color: #fff;
+}
+
+.navbar:not(.scrolled) .nav-logo-text small {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.navbar:not(.scrolled) .nav-logo-img {
+    filter: invert(1) !important;
+}
+
+.navbar:not(.scrolled) .nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.navbar:not(.scrolled) .nav-links a:hover,
+.navbar:not(.scrolled) .nav-links a.active {
+    color: #fff;
+}
+
+.navbar:not(.scrolled) .theme-toggle {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar:not(.scrolled) .hamburger span {
+    background: #fff;
+}
+
+.navbar:not(.scrolled) .nav-actions .btn {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.navbar:not(.scrolled) .profile-toggle {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-content {
