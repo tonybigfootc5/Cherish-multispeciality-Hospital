@@ -489,7 +489,6 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     transition: background 0.4s ease, color 0.4s ease;
-    padding-top: var(--nav-height);
 }
 
 a {
@@ -924,12 +923,18 @@ select:-webkit-autofill {
    ================================================ */
 .hero {
     min-height: 100vh;
-    margin-top: calc(-1 * var(--nav-height));
-    padding-top: var(--nav-height);
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+}
+
+.hero + section {
+    scroll-margin-top: var(--nav-height);
+}
+
+section:not(.hero) {
+    scroll-margin-top: var(--nav-height);
 }
 
 .hero-bg-image {
