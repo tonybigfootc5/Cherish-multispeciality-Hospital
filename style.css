@@ -312,8 +312,8 @@
     --dept-overlay-grad: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.85) 100%);
     --dept-overlay-hover: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.03) 40%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.8) 100%);
     --dept-card-after: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
-    --dept-icon-bg: rgba(0, 0, 0, 0.06);
-    --dept-icon-border: rgba(0, 0, 0, 0.1);
+    --dept-icon-bg: #ffffff;
+    --dept-icon-border: rgba(0, 0, 0, 0.12);
     --link-arrow-bg: rgba(0, 0, 0, 0.06);
     --link-arrow-hover-color: #fff;
     --link-arrow-hover-bg: #1d1d1f;
@@ -336,6 +336,13 @@
 }
 
 /* Light mode overrides for elements that need forced colors */
+[data-theme="light"] .dept-icon {
+    background: #ffffff;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #1d1d1f;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
 [data-theme="light"] .facility-overlay h4 {
     color: #fff;
 }
