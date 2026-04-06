@@ -923,7 +923,9 @@ select:-webkit-autofill {
    HERO SECTION
    ================================================ */
 .hero {
-    min-height: calc(100vh - var(--nav-height));
+    min-height: 100vh;
+    margin-top: calc(-1 * var(--nav-height));
+    padding-top: var(--nav-height);
     display: flex;
     align-items: center;
     position: relative;
