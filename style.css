@@ -356,6 +356,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     transition: background 0.4s ease, color 0.4s ease;
+    padding-top: var(--nav-height);
 }
 
 a {
@@ -540,8 +541,10 @@ select:-webkit-autofill {
    NAVBAR
    ================================================ */
 .navbar {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 1000;
     background: var(--nav-bg);
     backdrop-filter: saturate(180%) blur(20px);
