@@ -57,9 +57,43 @@ let bookingState = {
 let confirmAction = null; // for reschedule/cancel confirm tooltip
 
 // ==========================================
+// THEME — Dark / Light Mode
+// ==========================================
+function initTheme() {
+    const saved = localStorage.getItem('cherishTheme');
+    if (saved) {
+        setTheme(saved);
+    } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.getItem('cherishTheme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+}
+
+function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    const icon = document.getElementById('themeIcon');
+    if (icon) {
+        icon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+    }
+}
+
+function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    localStorage.setItem('cherishTheme', next);
+}
+
+// ==========================================
 // INIT
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     initAuth();
     renderDepartments();
     populateDeptSelect();

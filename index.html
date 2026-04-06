@@ -18,6 +18,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Prevent FOUC: apply theme before paint -->
+    <script>
+        (function(){
+            var t = localStorage.getItem('cherishTheme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
 <body>
 
@@ -74,6 +82,10 @@
                     </div>
                 </div>
             </div>
+
+            <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark/light mode">
+                <i class="fa-solid fa-moon" id="themeIcon"></i>
+            </button>
 
             <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
@@ -764,10 +776,11 @@
                     </a>
                     <p>Delivering world-class healthcare with compassion, innovation, and integrity since 2005.</p>
                     <div class="footer-socials">
-                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61574438015860" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://x.com/MohanIndra15985" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.instagram.com/cherishmultispeciality/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/cherishmultispeciality-hospital-a41b3a3b6/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/channel/UCXEZSXaTDcdojFovRT_Ajag" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
