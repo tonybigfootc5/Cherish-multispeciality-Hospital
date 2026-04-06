@@ -81,29 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==========================================
-// HERO VIDEO — SMOOTH LOOP
+// HERO VIDEO — SEAMLESS LOOP
 // ==========================================
 function initHeroVideoLoop() {
     const video = document.getElementById('heroVideo');
     if (!video) return;
 
-    const FADE_DURATION = 1; // seconds to fade out/in
-
+    // Jump back to start just before the end to avoid the last-frame stutter
     video.addEventListener('timeupdate', () => {
-        if (!video.duration) return;
-        const timeLeft = video.duration - video.currentTime;
-        if (timeLeft <= FADE_DURATION && video.style.opacity !== '0') {
-            video.style.opacity = '0';
+        if (video.duration && video.currentTime > video.duration - 0.3) {
+            video.currentTime = 0;
         }
-    });
-
-    video.addEventListener('ended', () => {
-        video.currentTime = 0;
-        video.play();
-        // Small delay so the fade-in starts after reset
-        requestAnimationFrame(() => {
-            video.style.opacity = '1';
-        });
     });
 }
 
