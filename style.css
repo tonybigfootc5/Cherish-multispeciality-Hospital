@@ -175,6 +175,7 @@
     --autofill-shadow: 0 0 0 1000px #1c1c1e inset;
     --color-scheme: dark;
     --date-invert: invert(0.7);
+    --logo-invert: invert(1);
 }
 
 /* ====== LIGHT MODE ====== */
@@ -331,6 +332,7 @@
     --autofill-shadow: 0 0 0 1000px #ffffff inset;
     --color-scheme: light;
     --date-invert: invert(0.3);
+    --logo-invert: invert(0);
 }
 
 /* ====== RESET & BASE ====== */
@@ -572,8 +574,11 @@ select:-webkit-autofill {
     letter-spacing: -0.02em;
 }
 
-.nav-logo i {
-    font-size: 1.1rem;
+.nav-logo-img {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+    filter: var(--logo-invert, invert(1));
 }
 
 .nav-links {
