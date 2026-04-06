@@ -207,7 +207,7 @@
     --nav-bg: rgba(248, 248, 250, 0.8);
     --nav-bg-scrolled: rgba(248, 248, 250, 0.95);
     --nav-mobile-bg: rgba(248, 248, 250, 0.98);
-    --hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.25) 50%, rgba(248, 248, 250, 0.95) 100%);
+    --hero-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.55) 100%);
     --hero-badge-bg: rgba(255, 255, 255, 0.85);
     --hero-badge-border: rgba(0, 0, 0, 0.1);
     --icon-bg: rgba(0, 0, 0, 0.06);
@@ -312,9 +312,9 @@
     --dept-overlay-grad: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,0.85) 100%);
     --dept-overlay-hover: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.03) 40%, rgba(0,0,0,0.5) 75%, rgba(0,0,0,0.8) 100%);
     --dept-card-after: linear-gradient(90deg, transparent, rgba(0,0,0,0.15), transparent);
-    --dept-icon-bg: rgba(255, 255, 255, 0.9);
-    --dept-icon-border: rgba(255, 255, 255, 0.5);
-    --link-arrow-bg: rgba(255, 255, 255, 0.8);
+    --dept-icon-bg: rgba(0, 0, 0, 0.06);
+    --dept-icon-border: rgba(0, 0, 0, 0.1);
+    --link-arrow-bg: rgba(0, 0, 0, 0.06);
     --link-arrow-hover-color: #fff;
     --link-arrow-hover-bg: #1d1d1f;
     --facility-overlay-bg: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
@@ -336,19 +336,7 @@
 }
 
 /* Light mode overrides for elements that need forced colors */
-[data-theme="light"] .dept-card-content {
-    color: #fff;
-}
-
-[data-theme="light"] .dept-card p {
-    color: rgba(255, 255, 255, 0.75);
-}
-
-[data-theme="light"] .dept-icon {
-    color: #fff;
-}
-
-[data-theme="light"] .facility-name {
+[data-theme="light"] .facility-overlay h4 {
     color: #fff;
 }
 
