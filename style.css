@@ -483,6 +483,8 @@ select:-webkit-autofill {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 .hero-overlay {

@@ -77,7 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
     updateApptBadge();
     initOTPInputs();
     initBookingValidation();
+    initHeroVideoLoop();
 });
+
+// ==========================================
+// HERO VIDEO — SMOOTH LOOP
+// ==========================================
+function initHeroVideoLoop() {
+    const video = document.getElementById('heroVideo');
+    if (!video) return;
+
+    const FADE_DURATION = 1; // seconds to fade out/in
+
+    video.addEventListener('timeupdate', () => {
+        if (!video.duration) return;
+        const timeLeft = video.duration - video.currentTime;
+        if (timeLeft <= FADE_DURATION && video.style.opacity !== '0') {
+            video.style.opacity = '0';
+        }
+    });
+
+    video.addEventListener('ended', () => {
+        video.currentTime = 0;
+        video.play();
+        // Small delay so the fade-in starts after reset
+        requestAnimationFrame(() => {
+            video.style.opacity = '1';
+        });
+    });
+}
 
 // ==========================================
 // AUTH MANAGER
