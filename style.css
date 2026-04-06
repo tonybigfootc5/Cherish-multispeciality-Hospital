@@ -684,6 +684,43 @@ select:-webkit-autofill {
     transition: all var(--transition);
 }
 
+/* When mobile menu is open, give navbar a solid background */
+.navbar:has(.hamburger.active) {
+    background: var(--nav-bg-scrolled);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom-color: var(--glass-border);
+}
+
+/* Revert to theme colors when menu is open */
+.navbar:has(.hamburger.active) .nav-logo {
+    color: var(--text);
+}
+
+.navbar:has(.hamburger.active) .nav-logo-text small {
+    color: var(--text-muted);
+}
+
+.navbar:has(.hamburger.active) .nav-logo-img {
+    filter: var(--logo-invert, invert(1)) !important;
+}
+
+.navbar:has(.hamburger.active) .theme-toggle {
+    color: var(--text);
+    border-color: var(--glass-border);
+    background: var(--glass-bg);
+}
+
+.navbar:has(.hamburger.active) .hamburger span {
+    background: var(--text);
+}
+
+.navbar:has(.hamburger.active) .profile-toggle {
+    color: var(--text);
+    border-color: var(--glass-border);
+    background: var(--glass-bg);
+}
+
 .navbar.scrolled {
     background: var(--nav-bg-scrolled);
     backdrop-filter: saturate(180%) blur(20px);
@@ -705,12 +742,12 @@ select:-webkit-autofill {
     filter: invert(1) !important;
 }
 
-.navbar:not(.scrolled) .nav-links a {
+.navbar:not(.scrolled) .nav-links:not(.open) a {
     color: rgba(255, 255, 255, 0.85);
 }
 
-.navbar:not(.scrolled) .nav-links a:hover,
-.navbar:not(.scrolled) .nav-links a.active {
+.navbar:not(.scrolled) .nav-links:not(.open) a:hover,
+.navbar:not(.scrolled) .nav-links:not(.open) a.active {
     color: #fff;
 }
 
