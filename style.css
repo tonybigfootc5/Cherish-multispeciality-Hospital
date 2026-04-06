@@ -581,6 +581,25 @@ select:-webkit-autofill {
     filter: var(--logo-invert, invert(1));
 }
 
+.nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.nav-logo-text span {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.nav-logo-text small {
+    font-size: 0.6rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
 .nav-links {
     display: flex;
     gap: 8px;
