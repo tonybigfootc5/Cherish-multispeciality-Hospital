@@ -142,14 +142,17 @@ function switchToGuestView() {
 }
 
 function updateBookingButtons() {
+    // New OTP-based flow doesn't require Google sign-in gate
     const confirmGoogle = document.getElementById('confirmGoogleBtn');
     const confirmBooking = document.getElementById('confirmBookingBtn');
-    if (isLoggedIn()) {
-        confirmGoogle.classList.add('hidden');
-        confirmBooking.classList.remove('hidden');
-    } else {
-        confirmGoogle.classList.remove('hidden');
-        confirmBooking.classList.add('hidden');
+    if (confirmGoogle && confirmBooking) {
+        if (isLoggedIn()) {
+            confirmGoogle.classList.add('hidden');
+            confirmBooking.classList.remove('hidden');
+        } else {
+            confirmGoogle.classList.remove('hidden');
+            confirmBooking.classList.add('hidden');
+        }
     }
 }
 
@@ -255,8 +258,12 @@ function renderDepartments() {
 function bookInDept(deptId) {
     scrollToBooking();
     setTimeout(() => {
-        const sel = document.getElementById('deptSelect');
-        if (sel) { sel.value = deptId; handleDeptChange(); }
+        goToStep(2);
+        bookingState.department = deptId;
+        document.querySelectorAll('.b-dept-chip').forEach(c => {
+            c.classList.toggle('active', c.dataset.dept === deptId);
+        });
+        renderDoctorSelection(deptId);
     }, 500);
 }
 
