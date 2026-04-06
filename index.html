@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherish Multispeciality Hospital — World-Class Care, Close to Home</title>
+    <meta name="description" content="Cherish Multispeciality Hospital offers premium healthcare with 50+ expert doctors across 20+ departments. Book your appointment online today.">
+    <meta property="og:title" content="Cherish Multispeciality Hospital">
+    <meta property="og:description" content="World-Class Care, Close to Home. Book appointments with top specialists instantly.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============ TOAST CONTAINER ============ -->
+    <div id="toast-container" aria-live="polite"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="nav-logo">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Cherish</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#departments">Departments</a></li>
+                <li><a href="#doctor-spotlight">Doctors</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Guest View -->
+            <div class="nav-actions" id="guestActions">
+                <button class="btn btn-accent" id="navBookBtn" onclick="scrollToBooking()">
+                    <i class="fa-solid fa-calendar-check"></i> Book Appointment
+                </button>
+            </div>
+
+            <!-- Patient View (hidden by default) -->
+            <div class="nav-actions nav-profile-area hidden" id="patientActions">
+                <div class="profile-dropdown-wrapper">
+                    <button class="profile-toggle" id="profileToggle" onclick="toggleProfileDropdown()">
+                        <div class="avatar-circle" id="userAvatar">T</div>
+                        <span class="profile-name" id="userName">User</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="profile-dropdown hidden" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <div class="avatar-circle">T</div>
+                            <div>
+                                <p class="dropdown-name" id="dropdownName">User</p>
+                                <p class="dropdown-email" id="dropdownEmail">user@gmail.com</p>
+                            </div>
+                        </div>
+                        <hr class="dropdown-divider">
+                        <button class="dropdown-item" onclick="openAppointmentsDashboard()">
+                            <i class="fa-solid fa-calendar-days"></i> My Appointments
+                            <span class="appt-badge hidden" id="apptBadge">0</span>
+                        </button>
+                        <button class="dropdown-item dropdown-item-danger" onclick="handleSignOut()">
+                            <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============ HERO SECTION ============ -->
+    <section class="hero reveal" id="home">
+        <div class="hero-bg-video" aria-hidden="true">
+            <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1626315869436-d6781ba69d6e?auto=format&fit=crop&w=1920&q=80">
+                <source src="videos/hero-dna.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-shield-heart"></i> Trusted by 15,000+ Patients
+            </div>
+            <h1>World-Class Care,<br><span class="text-accent">Close to Home</span></h1>
+            <p class="hero-subtitle">Led by <strong>Dr. Indra Mohan</strong> — experience premium healthcare with cutting-edge technology and compassionate specialists at Cherish Multispeciality Hospital.</p>
+            <div class="hero-actions">
+                <button class="btn btn-accent btn-lg" onclick="scrollToBooking()">
+                    <i class="fa-solid fa-calendar-plus"></i> Start Booking
+                </button>
+                <a href="#departments" class="btn btn-outline btn-lg">
+                    <i class="fa-solid fa-stethoscope"></i> Explore Departments
+                </a>
+            </div>
+            <div class="hero-micro-copy">
+                <i class="fa-solid fa-lock"></i> Your health data is encrypted and secure
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TRUST STATS ============ -->
+    <section class="stats-section reveal" id="stats">
+        <div class="stats-bg-image" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=1920&q=80" alt="" loading="lazy">
+        </div>
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3 class="stat-number" data-target="15000">0</h3>
+                    <p class="stat-label">Patients Served</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i class="fa-solid fa-heart"></i></div>
+                    <h3 class="stat-number" data-target="5000">0</h3>
+                    <p class="stat-label">Successful Surgeries</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h3 class="stat-number" data-target="20">0</h3>
+                    <p class="stat-label">Departments</p>
+                </div>
+                <div class="stat-card glass-card">
+                    <div class="stat-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h3 class="stat-number" data-target="50">0</h3>
+                    <p class="stat-label">Expert Doctors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DEPARTMENTS ============ -->
+    <section class="departments-section reveal" id="departments">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Specialized <span class="text-accent">Departments</span></h2>
+                <p class="section-subtitle">Comprehensive care across every medical discipline</p>
+            </div>
+            <div class="dept-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="surgical">Surgical</button>
+                <button class="filter-btn" data-filter="medical">Medical</button>
+                <button class="filter-btn" data-filter="specialty">Specialty</button>
+            </div>
+            <div class="dept-grid" id="deptGrid">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DR. INDRA MOHAN SPOTLIGHT ============ -->
+    <section class="doctor-spotlight reveal" id="doctor-spotlight">
+        <div class="container">
+            <div class="spotlight-grid">
+                <div class="spotlight-image">
+                    <img src="images/ChatGPT%20Image%20Mar%2024,%202026,%2006_59_44%20PM.png" alt="Dr. Indra Mohan — Chief Surgeon &amp; Director" class="spotlight-photo" loading="lazy">
+                    <div class="spotlight-badge glass-card">
+                        <i class="fa-solid fa-award"></i>
+                        <span>20+ Years Experience</span>
+                    </div>
+                </div>
+                <div class="spotlight-info">
+                    <div class="spotlight-tag">Chief Surgeon & Director</div>
+                    <h2>Dr. Indra Mohan</h2>
+                    <p class="spotlight-bio">A visionary in the field of multispeciality surgery, Dr. Indra Mohan brings over two decades of clinical excellence. Known for pioneering minimally invasive surgical techniques, he has transformed the lives of thousands of patients across India.</p>
+                    <div class="spotlight-credentials">
+                        <div class="credential">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>MBBS, MS (General Surgery), MCh</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fa-solid fa-hospital"></i>
+                            <span>Former HOD — AIIMS New Delhi</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>National Excellence Award in Surgery, 2019</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fa-solid fa-book-medical"></i>
+                            <span>100+ Published Research Papers</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-accent" onclick="bookWithDoctor('Dr. Indra Mohan', 'General Surgery')">
+                        <i class="fa-solid fa-calendar-check"></i> Book with Dr. Mohan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BOOKING SECTION ============ -->
+    <section class="booking-section reveal" id="booking">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Book Your <span class="text-accent">Appointment</span></h2>
+                <p class="section-subtitle">Quick, easy and secure — book in under a minute</p>
+            </div>
+
+            <div class="booking-flow">
+                <!-- Progress Bar -->
+                <div class="booking-progress">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-steps">
+                        <div class="p-step active" data-step="1">
+                            <div class="p-step-dot"><i class="fa-solid fa-user"></i></div>
+                            <span>Your Info</span>
+                        </div>
+                        <div class="p-step" data-step="2">
+                            <div class="p-step-dot"><i class="fa-solid fa-stethoscope"></i></div>
+                            <span>Doctor</span>
+                        </div>
+                        <div class="p-step" data-step="3">
+                            <div class="p-step-dot"><i class="fa-solid fa-calendar"></i></div>
+                            <span>Schedule</span>
+                        </div>
+                        <div class="p-step" data-step="4">
+                            <div class="p-step-dot"><i class="fa-solid fa-shield-halved"></i></div>
+                            <span>Verify</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Card -->
+                <div class="booking-card">
+                    <div class="booking-steps-viewport">
+                        <!-- Step 1: Patient Info -->
+                        <div class="b-step active" id="bStep1">
+                            <div class="b-step-header">
+                                <div class="b-step-icon"><i class="fa-solid fa-user-pen"></i></div>
+                                <div>
+                                    <h3>Tell us about yourself</h3>
+                                    <p>We just need your name and phone number</p>
+                                </div>
+                            </div>
+                            <div class="b-step-body">
+                                <div class="b-field">
+                                    <label for="patientName"><i class="fa-solid fa-user"></i> Full Name</label>
+                                    <input type="text" id="patientName" class="b-input" placeholder="Enter your full name" autocomplete="name">
+                                    <span class="b-error" id="nameError"></span>
+                                </div>
+                                <div class="b-field">
+                                    <label for="patientPhone"><i class="fa-solid fa-mobile-screen"></i> Phone Number</label>
+                                    <div class="b-phone-input">
+                                        <span class="b-phone-prefix">+91</span>
+                                        <input type="tel" id="patientPhone" class="b-input" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[0-9]*" autocomplete="tel">
+                                    </div>
+                                    <span class="b-error" id="phoneError"></span>
+                                </div>
+                                <div class="b-field">
+                                    <label for="patientNotes"><i class="fa-solid fa-notes-medical"></i> Symptoms / Notes <span class="b-optional">(optional)</span></label>
+                                    <textarea id="patientNotes" class="b-input" rows="2" placeholder="Describe your symptoms or any special requests..."></textarea>
+                                </div>
+                            </div>
+                            <div class="b-step-footer">
+                                <div></div>
+                                <button class="b-btn b-btn-primary" id="step1Next" onclick="goToStep(2)">
+                                    Continue <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Department & Doctor -->
+                        <div class="b-step" id="bStep2">
+                            <div class="b-step-header">
+                                <div class="b-step-icon"><i class="fa-solid fa-hospital-user"></i></div>
+                                <div>
+                                    <h3>Choose your doctor</h3>
+                                    <p>Select a department, then pick your preferred doctor</p>
+                                </div>
+                            </div>
+                            <div class="b-step-body">
+                                <div class="b-dept-chips" id="deptChips">
+                                    <!-- Rendered by JS -->
+                                </div>
+                                <div class="b-doctors-list" id="doctorsGrid">
+                                    <div class="b-placeholder">
+                                        <i class="fa-solid fa-hand-pointer"></i>
+                                        <p>Select a department above to see available doctors</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b-step-footer">
+                                <button class="b-btn b-btn-ghost" onclick="goToStep(1)">
+                                    <i class="fa-solid fa-arrow-left"></i> Back
+                                </button>
+                                <button class="b-btn b-btn-primary" id="step2Next" disabled onclick="goToStep(3)">
+                                    Continue <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Date & Time -->
+                        <div class="b-step" id="bStep3">
+                            <div class="b-step-header">
+                                <div class="b-step-icon"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <h3>Pick a date & time</h3>
+                                    <p>Choose when you'd like to visit</p>
+                                </div>
+                            </div>
+                            <div class="b-step-body">
+                                <div class="b-field">
+                                    <label for="dateSelect"><i class="fa-solid fa-calendar-day"></i> Select Date</label>
+                                    <input type="date" id="dateSelect" class="b-input" onchange="handleDateChange()">
+                                </div>
+                                <div class="b-slots-wrap" id="slotsContainer">
+                                    <div class="b-slots-section">
+                                        <div class="b-slots-label"><i class="fa-solid fa-sun"></i> Morning</div>
+                                        <div class="b-slots-grid" id="morningSlots"></div>
+                                    </div>
+                                    <div class="b-slots-section">
+                                        <div class="b-slots-label"><i class="fa-solid fa-cloud-sun"></i> Afternoon</div>
+                                        <div class="b-slots-grid" id="afternoonSlots"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b-step-footer">
+                                <button class="b-btn b-btn-ghost" onclick="goToStep(2)">
+                                    <i class="fa-solid fa-arrow-left"></i> Back
+                                </button>
+                                <button class="b-btn b-btn-primary" id="step3Next" disabled onclick="goToStep(4)">
+                                    Continue <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: OTP Verification & Confirm -->
+                        <div class="b-step" id="bStep4">
+                            <div class="b-step-header">
+                                <div class="b-step-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                                <div>
+                                    <h3>Verify & Confirm</h3>
+                                    <p>Review your booking and verify with OTP</p>
+                                </div>
+                            </div>
+                            <div class="b-step-body">
+                                <div class="b-review-card">
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-user"></i> Patient</div>
+                                        <div class="b-review-value" id="reviewPatient">—</div>
+                                    </div>
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-phone"></i> Phone</div>
+                                        <div class="b-review-value" id="reviewPhone">—</div>
+                                    </div>
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-stethoscope"></i> Doctor</div>
+                                        <div class="b-review-value" id="reviewDoctor">—</div>
+                                    </div>
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-hospital"></i> Department</div>
+                                        <div class="b-review-value" id="reviewDept">—</div>
+                                    </div>
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-calendar"></i> Date</div>
+                                        <div class="b-review-value" id="reviewDate">—</div>
+                                    </div>
+                                    <div class="b-review-row">
+                                        <div class="b-review-label"><i class="fa-solid fa-clock"></i> Time</div>
+                                        <div class="b-review-value" id="reviewTime">—</div>
+                                    </div>
+                                </div>
+
+                                <!-- OTP Section -->
+                                <div class="b-otp-section" id="otpSection">
+                                    <div class="b-otp-prompt">
+                                        <i class="fa-solid fa-sms"></i>
+                                        <div>
+                                            <p>We'll send a 4-digit OTP to <strong id="otpPhoneDisplay">+91 XXXXXXXXXX</strong></p>
+                                            <small>Standard SMS charges may apply</small>
+                                        </div>
+                                    </div>
+                                    <button class="b-btn b-btn-send-otp" id="sendOtpBtn" onclick="sendOTP()">
+                                        <i class="fa-solid fa-paper-plane"></i> Send OTP
+                                    </button>
+                                </div>
+
+                                <!-- OTP Input (hidden until OTP sent) -->
+                                <div class="b-otp-input-section hidden" id="otpInputSection">
+                                    <p class="b-otp-sent-msg"><i class="fa-solid fa-check-circle"></i> OTP sent to <strong id="otpSentPhone">+91 XXXXXXXXXX</strong></p>
+                                    <div class="b-otp-boxes">
+                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="0" autocomplete="one-time-code">
+                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="1">
+                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="2">
+                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="3">
+                                    </div>
+                                    <span class="b-error" id="otpError"></span>
+                                    <div class="b-otp-actions">
+                                        <button class="b-btn-link" id="resendOtpBtn" onclick="resendOTP()" disabled>Resend OTP <span id="otpTimer">(30s)</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="b-step-footer">
+                                <button class="b-btn b-btn-ghost" onclick="goToStep(3)">
+                                    <i class="fa-solid fa-arrow-left"></i> Back
+                                </button>
+                                <button class="b-btn b-btn-confirm" id="confirmBookingBtn" disabled onclick="confirmBooking()">
+                                    <i class="fa-solid fa-check-circle"></i> Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security badge -->
+                <div class="b-security-badge">
+                    <i class="fa-solid fa-lock"></i>
+                    <span>Your data is encrypted & secure — we never share your information</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FACILITIES GALLERY ============ -->
+    <section class="facilities-section" id="facilities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our <span class="text-accent">Facilities</span></h2>
+                <p class="section-subtitle">World-class infrastructure designed for your comfort and care</p>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=600&q=80" alt="Modern Hospital Building" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Hospital Building</h4>
+                        <p>State-of-the-art 200-bed facility</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=600&q=80" alt="Advanced Operation Theatre" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Operation Theatre</h4>
+                        <p>Modular OTs with laminar airflow</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Premium Patient Room" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Patient Rooms</h4>
+                        <p>Private suites with 24/7 monitoring</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80" alt="Expert Medical Team" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Expert Surgeons</h4>
+                        <p>Led by Dr. Indra Mohan &amp; 50+ specialists</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=600&q=80" alt="Diagnostic Laboratory" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Diagnostic Lab</h4>
+                        <p>AI-powered diagnostics &amp; imaging</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=600&q=80" alt="Emergency &amp; ICU" loading="lazy">
+                    <div class="facility-overlay">
+                        <h4>Emergency &amp; ICU</h4>
+                        <p>24/7 critical care with rapid response</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="why-section reveal" id="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose <span class="text-accent">Cherish</span></h2>
+                <p class="section-subtitle">Setting new standards in patient care</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h4>Advanced Technology</h4>
+                    <p>State-of-the-art equipment and AI-assisted diagnostics for precise treatment.</p>
+                </div>
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-truck-medical"></i></div>
+                    <h4>24/7 Emergency</h4>
+                    <p>Round-the-clock emergency services with rapid response teams always on standby.</p>
+                </div>
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                    <h4>Experienced Doctors</h4>
+                    <p>50+ specialists with decades of expertise across all major medical fields.</p>
+                </div>
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+                    <h4>Patient-First Approach</h4>
+                    <p>Personalized treatment plans focused on comfort, dignity, and holistic recovery.</p>
+                </div>
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                    <h4>Affordable Care</h4>
+                    <p>Transparent pricing with no hidden charges. Cashless insurance accepted.</p>
+                </div>
+                <div class="why-card glass-card">
+                    <div class="why-icon"><i class="fa-solid fa-hospital"></i></div>
+                    <h4>Modern Facilities</h4>
+                    <p>World-class infrastructure with private recovery suites and digital health records.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ DIRECTOR'S MESSAGE ============ -->
+    <section class="director-section reveal" id="director-message">
+        <div class="container">
+            <div class="director-grid">
+                <div class="director-image">
+                    <img src="images/ChatGPT%20Image%20Mar%2024,%202026,%2007_28_48%20PM.png" alt="Dr. Indra Mohan — Director, Cherish Hospital" loading="lazy">
+                </div>
+                <div class="director-content">
+                    <div class="director-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <h2 class="director-heading">A Message from Our <span class="text-accent">Director</span></h2>
+                    <blockquote class="director-quote">
+                        "At Cherish, we don't just treat ailments — we build lasting relationships with every patient and their family. Our mission is to deliver world-class healthcare with a human touch, ensuring every individual who walks through our doors leaves healthier, happier, and more hopeful."
+                    </blockquote>
+                    <div class="director-sign">
+                        <strong>Dr. Indra Mohan</strong>
+                        <span>MBBS, MS, MCh — Founder & Director</span>
+                        <span>Cherish Multispeciality Hospital</span>
+                    </div>
+                    <div class="director-stats">
+                        <div class="director-stat">
+                            <strong>20+</strong>
+                            <span>Years in Surgery</span>
+                        </div>
+                        <div class="director-stat">
+                            <strong>5000+</strong>
+                            <span>Surgeries Performed</span>
+                        </div>
+                        <div class="director-stat">
+                            <strong>100+</strong>
+                            <span>Research Papers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="testimonials-section reveal" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our <span class="text-accent">Patients Say</span></h2>
+                <p class="section-subtitle">Real stories from real patients</p>
+            </div>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <!-- Original cards -->
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The care I received at Cherish was extraordinary. Dr. Mohan and his team made me feel safe throughout my cardiac surgery. I'm forever grateful."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">R</div>
+                        <div>
+                            <strong>Rajesh Kumar</strong>
+                            <span>Cardiac Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"From booking to recovery, everything was seamless. The online portal made scheduling so easy, and the staff was incredibly professional."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">P</div>
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <span>Orthopedic Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="testimonial-text">"My daughter's pediatric treatment was handled with such warmth and expertise. The child-friendly environment made all the difference."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">A</div>
+                        <div>
+                            <strong>Anita Desai</strong>
+                            <span>Parent of Pediatric Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"I've been to many hospitals, but none match Cherish's level of personal attention. The neurology department diagnosed my condition when others couldn't."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">V</div>
+                        <div>
+                            <strong>Vikram Patel</strong>
+                            <span>Neurology Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The dermatology department transformed my skin health. Affordable, advanced treatments with visible results within weeks. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">S</div>
+                        <div>
+                            <strong>Sunita Rao</strong>
+                            <span>Dermatology Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Duplicated cards for seamless loop -->
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The care I received at Cherish was extraordinary. Dr. Mohan and his team made me feel safe throughout my cardiac surgery. I'm forever grateful."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">R</div>
+                        <div>
+                            <strong>Rajesh Kumar</strong>
+                            <span>Cardiac Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"From booking to recovery, everything was seamless. The online portal made scheduling so easy, and the staff was incredibly professional."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">P</div>
+                        <div>
+                            <strong>Priya Sharma</strong>
+                            <span>Orthopedic Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="testimonial-text">"My daughter's pediatric treatment was handled with such warmth and expertise. The child-friendly environment made all the difference."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">A</div>
+                        <div>
+                            <strong>Anita Desai</strong>
+                            <span>Parent of Pediatric Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"I've been to many hospitals, but none match Cherish's level of personal attention. The neurology department diagnosed my condition when others couldn't."</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">V</div>
+                        <div>
+                            <strong>Vikram Patel</strong>
+                            <span>Neurology Patient</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card glass-card">
+                    <div class="testimonial-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The dermatology department transformed my skin health. Affordable, advanced treatments with visible results within weeks. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="avatar-circle">S</div>
+                        <div>
+                            <strong>Sunita Rao</strong>
+                            <span>Dermatology Patient</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT & MAP ============ -->
+    <section class="contact-section reveal" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get in <span class="text-accent">Touch</span></h2>
+                <p class="section-subtitle">We're here for you, always</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <h4>Emergency Helpline</h4>
+                            <p>+91 82474 42686</p>
+                            <p class="text-muted">Available 24/7</p>
+                        </div>
+                    </div>
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>cherishmultispeciality@gmail.com</p>
+                            <p class="text-muted">We reply within 2 hours</p>
+                        </div>
+                    </div>
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Healthcare Avenue, Medical District</p>
+                            <p class="text-muted">New Delhi, India — 110001</p>
+                        </div>
+                    </div>
+                    <div class="contact-card glass-card">
+                        <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon — Sat: 8:00 AM – 9:00 PM</p>
+                            <p class="text-muted">Sunday: Emergency Only</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map glass-card">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.5!2d80.6345067!3d16.5135609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e56d852bc77b%3A0x576b206eed85aa77!2sCherish%20multispeciality%20Hospital!5e0!3m2!1sen!2sin!4v1" width="100%" height="100%" style="border:0; border-radius: 16px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Cherish Multispeciality Hospital Location"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="nav-logo">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                        <span>Cherish</span>
+                    </a>
+                    <p>Delivering world-class healthcare with compassion, innovation, and integrity since 2005.</p>
+                    <div class="footer-socials">
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#doctor-spotlight">Our Doctors</a></li>
+                        <li><a href="#booking">Book Appointment</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Departments</h4>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">General Surgery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Stay updated with health tips and hospital news.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Subscribed successfully!', 'success');">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-accent"><i class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <p>&copy; 2026 Cherish Multispeciality Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ AUTH MODAL ============ -->
+    <div class="modal-overlay hidden" id="authModal">
+        <div class="modal glass-card auth-modal">
+            <button class="modal-close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
+            <div class="auth-content" id="authContent">
+                <div class="auth-icon"><i class="fa-solid fa-user-shield"></i></div>
+                <h3>Sign In to Continue</h3>
+                <p>Sign in to book appointments and manage your health records securely.</p>
+                <button class="btn btn-google btn-lg" id="googleSignInBtn" onclick="handleGoogleSignIn()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                    Sign in with Google
+                </button>
+                <div class="hero-micro-copy" style="margin-top: 1rem;"><i class="fa-solid fa-lock"></i> Your health data is encrypted and secure</div>
+            </div>
+            <!-- Loading state -->
+            <div class="auth-loading hidden" id="authLoading">
+                <div class="skeleton-block" style="width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 1rem;"></div>
+                <div class="skeleton-block" style="width: 180px; height: 20px; margin: 0 auto 0.8rem;"></div>
+                <div class="skeleton-block" style="width: 240px; height: 14px; margin: 0 auto 0.5rem;"></div>
+                <div class="skeleton-block" style="width: 200px; height: 14px; margin: 0 auto;"></div>
+                <p style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.85rem;">Signing you in securely...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ APPOINTMENTS DASHBOARD MODAL ============ -->
+    <div class="modal-overlay hidden" id="appointmentsModal">
+        <div class="modal glass-card appointments-modal">
+            <button class="modal-close" onclick="closeAppointmentsDashboard()" aria-label="Close">&times;</button>
+            <div class="appointments-header">
+                <h3><i class="fa-solid fa-calendar-days"></i> My Appointments</h3>
+            </div>
+            <div class="appointments-body" id="appointmentsBody">
+                <!-- Rendered by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ BOOKING SUCCESS OVERLAY ============ -->
+    <div class="modal-overlay hidden" id="successOverlay">
+        <div class="modal glass-card success-modal">
+            <div class="success-animation" id="successAnimation">
+                <svg class="checkmark-svg" viewBox="0 0 100 100">
+                    <circle class="checkmark-circle" cx="50" cy="50" r="45" fill="none" stroke="#22c55e" stroke-width="3"/>
+                    <path class="checkmark-check" d="M30 50 L45 65 L70 35" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <h3>Booking Confirmed!</h3>
+            <p class="text-muted">Your appointment has been successfully booked</p>
+            <div class="success-details-card">
+                <div class="success-detail-row">
+                    <span class="success-label"><i class="fa-solid fa-user-doctor"></i> Doctor</span>
+                    <strong id="successDoctor">—</strong>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-label"><i class="fa-solid fa-hospital"></i> Department</span>
+                    <strong id="successDept">—</strong>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-label"><i class="fa-solid fa-calendar-check"></i> Date</span>
+                    <strong id="successDate">—</strong>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-label"><i class="fa-solid fa-clock"></i> Time</span>
+                    <strong id="successTime">—</strong>
+                </div>
+                <div class="success-detail-row">
+                    <span class="success-label"><i class="fa-solid fa-user"></i> Patient</span>
+                    <strong id="successPatient">—</strong>
+                </div>
+            </div>
+            <div class="success-sms-note">
+                <i class="fa-solid fa-sms"></i>
+                <span>Confirmation SMS sent to your registered mobile number</span>
+            </div>
+            <button class="btn btn-accent" onclick="closeSuccessOverlay()" style="margin-top: 1.5rem; width: 100%;">
+                <i class="fa-solid fa-check"></i> Done
+            </button>
+        </div>
+    </div>
+
+    <!-- ============ CONFIRM TOOLTIP (RESCHEDULE/CANCEL) ============ -->
+    <div class="confirm-tooltip hidden" id="confirmTooltip">
+        <p id="confirmTooltipText">Are you sure?</p>
+        <div class="confirm-actions">
+            <button class="btn btn-sm btn-outline" onclick="cancelConfirmAction()">No</button>
+            <button class="btn btn-sm btn-accent" id="confirmYesBtn" onclick="executeConfirmAction()">Yes</button>
+        </div>
+    </div>
+
+    <!-- ============ BACK TO TOP ============ -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ============ FLOATING ACTION BUTTONS ============ -->
+    <div class="float-cta">
+        <button class="float-btn float-chat" aria-label="Chat with us" onclick="showChatbotPopup()">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="float-label">Chat</span>
+        </button>
+        <a href="https://wa.me/918247442686?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="float-btn float-whatsapp" aria-label="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="float-label">WhatsApp</span>
+        </a>
+        <a href="tel:+918247442686" class="float-btn float-phone" aria-label="Call Emergency">
+            <i class="fa-solid fa-phone"></i>
+            <span class="float-label">Emergency</span>
+        </a>
+    </div>
+
+    <!-- ============ CHATBOT POPUP ============ -->
+    <div class="chatbot-popup hidden" id="chatbotPopup">
+        <div class="chatbot-card">
+            <button class="chatbot-close" onclick="closeChatbotPopup()" aria-label="Close">&times;</button>
+            <div class="chatbot-icon">
+                <i class="fa-solid fa-robot"></i>
+            </div>
+            <h4>AI Health Assistant</h4>
+            <p>Our smart chatbot is under development and will be available soon to help you with appointments, queries &amp; more.</p>
+            <span class="chatbot-badge">Coming Soon</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
