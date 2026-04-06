@@ -630,4 +630,12 @@ button { cursor: pointer; font-family: inherit; }
     .dept-hero { height: 280px; }
     .dept-hero h1 { font-size: 1.6rem; }
     .key-stats { flex-direction: column; }
+    .dept-body { padding: 24px 16px 48px; }
+}
+
+@media (max-width: 360px) {
+    .dept-hero { height: 240px; }
+    .dept-hero h1 { font-size: 1.4rem; }
+    .dept-hero-content { padding: 0 16px 24px; }
+    .dept-nav { padding: 0 12px; }
 }
