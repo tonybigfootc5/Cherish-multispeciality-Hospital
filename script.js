@@ -1,6 +1,6 @@
 /* ============================================
    CHERISH HOSPITAL — PREMIUM PORTAL SCRIPTS
-   Auth · Booking Engine · Dashboard · UI
+   Theme · Departments · UI
    ============================================ */
 
 // ==========================================
@@ -31,13 +31,6 @@ const DOCTORS = [
     { name: 'Dr. Anil Kapoor', dept: 'dermatology', specialty: 'Cosmetic Dermatologist', exp: '8 years' },
     { name: 'Dr. Priya Das', dept: 'general-surgery', specialty: 'Laparoscopic Surgeon', exp: '12 years' }
 ];
-
-const LS_USER_KEY = 'cherishUser';
-
-// ==========================================
-// STATE
-// ==========================================
-let confirmAction = null; // for reschedule/cancel confirm tooltip
 
 // ==========================================
 // THEME — Dark / Light Mode
@@ -101,158 +94,6 @@ function initHeroVideoLoop() {
             video.currentTime = 0;
         }
     });
-}
-
-// ==========================================
-// AUTH MANAGER
-// ==========================================
-function getUser() {
-    try {
-        const data = localStorage.getItem(LS_USER_KEY);
-        return data ? JSON.parse(data) : null;
-    } catch { return null; }
-}
-
-function saveUser(user) {
-    localStorage.setItem(LS_USER_KEY, JSON.stringify(user));
-}
-
-function clearUser() {
-    localStorage.removeItem(LS_USER_KEY);
-}
-
-function isLoggedIn() {
-    return !!getUser();
-}
-
-function initAuth() {
-    const user = getUser();
-    if (user) {
-        switchToPatientView(user);
-    } else {
-        switchToGuestView();
-    }
-}
-
-function switchToPatientView(user) {
-    const guestActions = document.getElementById('guestActions');
-    const patientActions = document.getElementById('patientActions');
-    const userAvatar = document.getElementById('userAvatar');
-    const userName = document.getElementById('userName');
-    const dropdownName = document.getElementById('dropdownName');
-    const dropdownEmail = document.getElementById('dropdownEmail');
-
-    guestActions.classList.add('hidden');
-    patientActions.classList.remove('hidden');
-
-    const initial = user.name ? user.name.charAt(0).toUpperCase() : 'U';
-    userAvatar.textContent = initial;
-    userName.textContent = user.name.split(' ')[0];
-    dropdownName.textContent = user.name;
-    dropdownEmail.textContent = user.email;
-
-    // Update dropdown avatar
-    const dropdownAvatars = patientActions.querySelectorAll('.dropdown-header .avatar-circle');
-    dropdownAvatars.forEach(a => a.textContent = initial);
-
-    updateBookingButtons();
-}
-
-function switchToGuestView() {
-    document.getElementById('guestActions').classList.remove('hidden');
-    document.getElementById('patientActions').classList.add('hidden');
-    closeProfileDropdown();
-    updateBookingButtons();
-}
-
-function updateBookingButtons() {
-    // New OTP-based flow doesn't require Google sign-in gate
-    const confirmGoogle = document.getElementById('confirmGoogleBtn');
-    const confirmBooking = document.getElementById('confirmBookingBtn');
-    if (confirmGoogle && confirmBooking) {
-        if (isLoggedIn()) {
-            confirmGoogle.classList.add('hidden');
-            confirmBooking.classList.remove('hidden');
-        } else {
-            confirmGoogle.classList.remove('hidden');
-            confirmBooking.classList.add('hidden');
-        }
-    }
-}
-
-function handleGoogleSignIn() {
-    const authContent = document.getElementById('authContent');
-    const authLoading = document.getElementById('authLoading');
-
-    authContent.classList.add('hidden');
-    authLoading.classList.remove('hidden');
-
-    setTimeout(() => {
-        const mockUser = {
-            name: 'Tony Stark',
-            email: 'tony.stark@gmail.com',
-            avatar: null
-        };
-        saveUser(mockUser);
-        switchToPatientView(mockUser);
-        closeAuthModal();
-
-        // Reset auth modal state for future use
-        authContent.classList.remove('hidden');
-        authLoading.classList.add('hidden');
-
-        showToast('Login Successful! Welcome, ' + mockUser.name.split(' ')[0], 'success');
-    }, 1500);
-}
-
-function handleSignOut() {
-    clearUser();
-    switchToGuestView();
-    showToast('Signed out successfully', 'info');
-}
-
-function toggleProfileDropdown() {
-    const dropdown = document.getElementById('profileDropdown');
-    const toggle = document.getElementById('profileToggle');
-    const isOpen = !dropdown.classList.contains('hidden');
-
-    if (isOpen) {
-        closeProfileDropdown();
-    } else {
-        dropdown.classList.remove('hidden');
-        toggle.classList.add('open');
-    }
-}
-
-function closeProfileDropdown() {
-    const dropdown = document.getElementById('profileDropdown');
-    const toggle = document.getElementById('profileToggle');
-    if (dropdown) dropdown.classList.add('hidden');
-    if (toggle) toggle.classList.remove('open');
-}
-
-// Close dropdown when clicking outside
-document.addEventListener('click', (e) => {
-    const wrapper = document.querySelector('.profile-dropdown-wrapper');
-    if (wrapper && !wrapper.contains(e.target)) {
-        closeProfileDropdown();
-    }
-});
-
-// ==========================================
-// AUTH MODAL
-// ==========================================
-function openAuthModal() {
-    document.getElementById('authModal').classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeAuthModal() {
-    document.getElementById('authModal').classList.add('hidden');
-    document.body.style.overflow = '';
-    // Reset state
-    document.getElementById('authContent').classList.remove('hidden');
-    document.getElementById('authLoading').classList.add('hidden');
 }
 
 // ==========================================
@@ -461,7 +302,6 @@ document.addEventListener('keydown', (e) => {
                 document.body.style.overflow = '';
             }
         });
-        cancelConfirmAction();
     }
 });
 

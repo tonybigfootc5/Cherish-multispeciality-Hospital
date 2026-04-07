@@ -77,68 +77,6 @@
     --input-placeholder: rgba(255, 255, 255, 0.25);
     --label-color: rgba(255, 255, 255, 0.55);
     --optional-color: rgba(255, 255, 255, 0.3);
-    --chip-bg: rgba(255, 255, 255, 0.03);
-    --chip-border: rgba(255, 255, 255, 0.1);
-    --chip-color: rgba(255, 255, 255, 0.6);
-    --chip-hover-bg: rgba(255, 255, 255, 0.08);
-    --chip-hover-color: #fff;
-    --chip-hover-border: rgba(255, 255, 255, 0.2);
-    --chip-active-bg: #fff;
-    --chip-active-color: #000;
-    --chip-active-border: #fff;
-    --doctor-card-bg: rgba(255, 255, 255, 0.03);
-    --doctor-card-hover-bg: rgba(255, 255, 255, 0.06);
-    --doctor-card-hover-border: rgba(255, 255, 255, 0.12);
-    --doctor-card-selected-border: #fff;
-    --doctor-card-selected-bg: rgba(255, 255, 255, 0.08);
-    --slot-bg: rgba(255, 255, 255, 0.04);
-    --slot-border: rgba(255, 255, 255, 0.08);
-    --slot-color: rgba(255, 255, 255, 0.7);
-    --slot-hover-bg: rgba(255, 255, 255, 0.1);
-    --slot-hover-color: #fff;
-    --slot-hover-border: rgba(255, 255, 255, 0.2);
-    --slot-selected-bg: #fff;
-    --slot-selected-color: #000;
-    --slot-selected-border: #fff;
-    --review-bg: rgba(255, 255, 255, 0.03);
-    --review-border: rgba(255, 255, 255, 0.08);
-    --review-row-border: rgba(255, 255, 255, 0.05);
-    --review-label-color: rgba(255, 255, 255, 0.45);
-    --review-value-color: #fff;
-    --otp-bg: rgba(255, 255, 255, 0.04);
-    --otp-border: rgba(255, 255, 255, 0.1);
-    --otp-color: #fff;
-    --otp-focus-border: #fff;
-    --otp-focus-bg: rgba(255, 255, 255, 0.08);
-    --otp-focus-shadow: rgba(255, 255, 255, 0.08);
-    --otp-prompt-icon: rgba(255, 255, 255, 0.4);
-    --otp-prompt-color: rgba(255, 255, 255, 0.8);
-    --otp-prompt-small: rgba(255, 255, 255, 0.3);
-    --ghost-btn-color: rgba(255, 255, 255, 0.5);
-    --ghost-btn-border: rgba(255, 255, 255, 0.1);
-    --ghost-btn-hover-color: #fff;
-    --ghost-btn-hover-border: rgba(255, 255, 255, 0.25);
-    --ghost-btn-hover-bg: rgba(255, 255, 255, 0.04);
-    --security-color: rgba(255, 255, 255, 0.3);
-    --placeholder-color: rgba(255, 255, 255, 0.3);
-    --check-border: rgba(255, 255, 255, 0.15);
-    --step-icon-bg: rgba(255, 255, 255, 0.06);
-    --step-icon-border: rgba(255, 255, 255, 0.1);
-    --step-footer-border: rgba(255, 255, 255, 0.06);
-    --progress-track-bg: rgba(255, 255, 255, 0.08);
-    --progress-fill-bg: #fff;
-    --progress-dot-border: rgba(255, 255, 255, 0.15);
-    --booking-card-bg: rgba(255, 255, 255, 0.03);
-    --booking-card-border: rgba(255, 255, 255, 0.08);
-    --phone-prefix-bg: rgba(255, 255, 255, 0.06);
-    --phone-prefix-color: rgba(255, 255, 255, 0.5);
-    --phone-prefix-border: rgba(255, 255, 255, 0.08);
-    --slots-label-color: rgba(255, 255, 255, 0.4);
-    --slots-label-icon: rgba(255, 255, 255, 0.3);
-    --otp-link-color: rgba(255, 255, 255, 0.4);
-    --send-otp-bg: rgba(255, 255, 255, 0.08);
-    --send-otp-border: rgba(255, 255, 255, 0.15);
-    --send-otp-hover-bg: rgba(255, 255, 255, 0.15);
     --modal-overlay-bg: rgba(0, 0, 0, 0.8);
     --modal-bg: var(--card-bg);
     --toast-bg: rgba(28, 28, 30, 0.98);
@@ -234,68 +172,6 @@
     --input-placeholder: rgba(0, 0, 0, 0.35);
     --label-color: #6e6e73;
     --optional-color: rgba(0, 0, 0, 0.35);
-    --chip-bg: #ffffff;
-    --chip-border: rgba(0, 0, 0, 0.12);
-    --chip-color: #6e6e73;
-    --chip-hover-bg: #f0f0f5;
-    --chip-hover-color: #1d1d1f;
-    --chip-hover-border: rgba(0, 0, 0, 0.2);
-    --chip-active-bg: #1d1d1f;
-    --chip-active-color: #fff;
-    --chip-active-border: #1d1d1f;
-    --doctor-card-bg: #ffffff;
-    --doctor-card-hover-bg: #f5f5f7;
-    --doctor-card-hover-border: rgba(0, 0, 0, 0.15);
-    --doctor-card-selected-border: #1d1d1f;
-    --doctor-card-selected-bg: #f0f0f5;
-    --slot-bg: #ffffff;
-    --slot-border: rgba(0, 0, 0, 0.1);
-    --slot-color: #6e6e73;
-    --slot-hover-bg: #f0f0f5;
-    --slot-hover-color: #1d1d1f;
-    --slot-hover-border: rgba(0, 0, 0, 0.2);
-    --slot-selected-bg: #1d1d1f;
-    --slot-selected-color: #fff;
-    --slot-selected-border: #1d1d1f;
-    --review-bg: #ffffff;
-    --review-border: rgba(0, 0, 0, 0.1);
-    --review-row-border: rgba(0, 0, 0, 0.06);
-    --review-label-color: #6e6e73;
-    --review-value-color: #1d1d1f;
-    --otp-bg: #ffffff;
-    --otp-border: rgba(0, 0, 0, 0.15);
-    --otp-color: #1d1d1f;
-    --otp-focus-border: #1d1d1f;
-    --otp-focus-bg: #ffffff;
-    --otp-focus-shadow: rgba(0, 0, 0, 0.1);
-    --otp-prompt-icon: #6e6e73;
-    --otp-prompt-color: #1d1d1f;
-    --otp-prompt-small: #6e6e73;
-    --ghost-btn-color: #6e6e73;
-    --ghost-btn-border: rgba(0, 0, 0, 0.12);
-    --ghost-btn-hover-color: #1d1d1f;
-    --ghost-btn-hover-border: rgba(0, 0, 0, 0.3);
-    --ghost-btn-hover-bg: rgba(0, 0, 0, 0.03);
-    --security-color: #86868b;
-    --placeholder-color: rgba(0, 0, 0, 0.35);
-    --check-border: rgba(0, 0, 0, 0.15);
-    --step-icon-bg: #f0f0f5;
-    --step-icon-border: rgba(0, 0, 0, 0.1);
-    --step-footer-border: rgba(0, 0, 0, 0.08);
-    --progress-track-bg: rgba(0, 0, 0, 0.08);
-    --progress-fill-bg: #1d1d1f;
-    --progress-dot-border: rgba(0, 0, 0, 0.15);
-    --booking-card-bg: #ffffff;
-    --booking-card-border: rgba(0, 0, 0, 0.1);
-    --phone-prefix-bg: #f5f5f7;
-    --phone-prefix-color: #6e6e73;
-    --phone-prefix-border: rgba(0, 0, 0, 0.1);
-    --slots-label-color: #6e6e73;
-    --slots-label-icon: rgba(0, 0, 0, 0.3);
-    --otp-link-color: #6e6e73;
-    --send-otp-bg: #f0f0f5;
-    --send-otp-border: rgba(0, 0, 0, 0.12);
-    --send-otp-hover-bg: #e5e5ea;
     --modal-overlay-bg: rgba(0, 0, 0, 0.4);
     --modal-bg: #fff;
     --toast-bg: #ffffff;
@@ -715,12 +591,6 @@ select:-webkit-autofill {
     background: var(--text);
 }
 
-.navbar:has(.hamburger.active) .profile-toggle {
-    color: var(--text);
-    border-color: var(--glass-border);
-    background: var(--glass-bg);
-}
-
 .navbar.scrolled {
     background: var(--nav-bg-scrolled);
     backdrop-filter: saturate(180%) blur(20px);
@@ -776,12 +646,6 @@ select:-webkit-autofill {
 .navbar:not(.scrolled) .nav-actions .btn-accent:hover {
     background: rgba(255, 255, 255, 0.25);
     border-color: #fff;
-}
-
-.navbar:not(.scrolled) .profile-toggle {
-    color: #fff;
-    border-color: rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-content {
@@ -877,109 +741,6 @@ select:-webkit-autofill {
     display: flex;
     align-items: center;
     gap: 12px;
-}
-
-/* Profile Dropdown */
-.profile-dropdown-wrapper {
-    position: relative;
-}
-
-.profile-toggle {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text);
-    font-size: 0.9rem;
-    transition: all var(--transition-fast);
-}
-
-.profile-toggle:hover {
-    background: var(--glass-bg-hover);
-}
-
-.profile-name {
-    max-width: 120px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.profile-toggle i:last-child {
-    font-size: 0.7rem;
-    transition: transform var(--transition-fast);
-}
-
-.profile-toggle.open i:last-child {
-    transform: rotate(180deg);
-}
-
-.profile-dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: 0;
-    width: 260px;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    padding: 16px;
-    animation: dropdownIn 0.2s ease;
-    z-index: 100;
-}
-
-@keyframes dropdownIn {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.dropdown-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.dropdown-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-}
-
-.dropdown-email {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.dropdown-divider {
-    border: none;
-    border-top: 1px solid var(--glass-border);
-    margin: 8px 0;
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: var(--radius-xs);
-    background: transparent;
-    color: var(--text);
-    font-size: 0.9rem;
-    transition: background var(--transition-fast);
-}
-
-.dropdown-item:hover {
-    background: var(--glass-bg);
-}
-
-.dropdown-item-danger {
-    color: var(--danger);
 }
 
 /* Hamburger */
@@ -2974,8 +2735,6 @@ a.smart-call-option:hover .smart-option-arrow {
     }
 
     .nav-actions .btn { display: none; }
-    .nav-profile-area { display: flex !important; }
-    .nav-profile-area.hidden .profile-toggle { display: none; }
 
     /* Reduce section padding on mobile */
     .departments-section,
@@ -3112,8 +2871,6 @@ a.smart-call-option:hover .smart-option-arrow {
 
 
 
-    .profile-name { display: none; }
-    .profile-toggle .fa-chevron-down { display: none; }
 }
 
 @media (max-width: 360px) {
