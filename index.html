@@ -44,15 +44,15 @@
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#departments">Departments</a></li>
                 <li><a href="#doctor-spotlight">Doctors</a></li>
-                <li><a href="#booking">Booking</a></li>
+                <li><a href="#booking">Contact Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
             <!-- Guest View -->
             <div class="nav-actions" id="guestActions">
-                <button class="btn btn-accent" id="navBookBtn" onclick="scrollToBooking()">
-                    <i class="fa-solid fa-calendar-check"></i> Book Appointment
-                </button>
+                <a href="tel:+918247442686" class="btn btn-accent" id="navBookBtn">
+                    <i class="fa-solid fa-phone"></i> Call Now
+                </a>
             </div>
 
             <!-- Patient View (hidden by default) -->
@@ -72,10 +72,6 @@
                             </div>
                         </div>
                         <hr class="dropdown-divider">
-                        <button class="dropdown-item" onclick="openAppointmentsDashboard()">
-                            <i class="fa-solid fa-calendar-days"></i> My Appointments
-                            <span class="appt-badge hidden" id="apptBadge">0</span>
-                        </button>
                         <button class="dropdown-item dropdown-item-danger" onclick="handleSignOut()">
                             <i class="fa-solid fa-right-from-bracket"></i> Sign Out
                         </button>
@@ -108,9 +104,9 @@
             <h1>World-Class Care,<br><span class="text-accent">Close to Home</span></h1>
             <p class="hero-subtitle">Led by <strong>Dr. Indra Mohan</strong> — experience premium healthcare with cutting-edge technology and compassionate specialists at Cherish Multispeciality Hospital.</p>
             <div class="hero-actions">
-                <button class="btn btn-accent btn-lg" onclick="scrollToBooking()">
-                    <i class="fa-solid fa-calendar-plus"></i> Start Booking
-                </button>
+                <a href="tel:+918247442686" class="btn btn-accent btn-lg">
+                    <i class="fa-solid fa-phone"></i> Call to Book
+                </a>
                 <a href="#departments" class="btn btn-outline btn-lg">
                     <i class="fa-solid fa-stethoscope"></i> Explore Departments
                 </a>
@@ -204,235 +200,81 @@
                             <span>100+ Published Research Papers</span>
                         </div>
                     </div>
-                    <button class="btn btn-accent" onclick="bookWithDoctor('Dr. Indra Mohan', 'General Surgery')">
-                        <i class="fa-solid fa-calendar-check"></i> Book with Dr. Mohan
-                    </button>
+                    <a href="tel:+918247442686" class="btn btn-accent">
+                        <i class="fa-solid fa-phone"></i> Call to Book with Dr. Mohan
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============ BOOKING SECTION ============ -->
-    <section class="booking-section reveal" id="booking">
+    <!-- ============ SMART CALL SECTION ============ -->
+    <section class="smart-call-section reveal" id="booking">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">Book Your <span class="text-accent">Appointment</span></h2>
-                <p class="section-subtitle">Quick, easy and secure — book in under a minute</p>
+                <h2 class="section-title">We're Just a <span class="text-accent">Phone Call</span> Away</h2>
+                <p class="section-subtitle">Skip the forms — speak directly with our care team and book your appointment instantly</p>
             </div>
 
-            <div class="booking-flow">
-                <!-- Progress Bar -->
-                <div class="booking-progress">
-                    <div class="progress-track">
-                        <div class="progress-fill" id="progressFill"></div>
+            <div class="smart-call-grid">
+                <!-- Primary Call Card -->
+                <div class="smart-call-card smart-call-primary glass-card">
+                    <div class="smart-call-icon-wrap">
+                        <div class="smart-call-icon pulse-ring">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
                     </div>
-                    <div class="progress-steps">
-                        <div class="p-step active" data-step="1">
-                            <div class="p-step-dot"><i class="fa-solid fa-user"></i></div>
-                            <span>Your Info</span>
-                        </div>
-                        <div class="p-step" data-step="2">
-                            <div class="p-step-dot"><i class="fa-solid fa-stethoscope"></i></div>
-                            <span>Doctor</span>
-                        </div>
-                        <div class="p-step" data-step="3">
-                            <div class="p-step-dot"><i class="fa-solid fa-calendar"></i></div>
-                            <span>Schedule</span>
-                        </div>
-                        <div class="p-step" data-step="4">
-                            <div class="p-step-dot"><i class="fa-solid fa-shield-halved"></i></div>
-                            <span>Verify</span>
-                        </div>
+                    <h3>Smart Call</h3>
+                    <p class="smart-call-number">+91 82474 42686</p>
+                    <p class="smart-call-desc">Tap to connect instantly with our reception desk. Book appointments, ask about departments, or get emergency assistance.</p>
+                    <a href="tel:+918247442686" class="btn btn-accent btn-lg smart-call-btn">
+                        <i class="fa-solid fa-phone"></i> Call Now — It's Free
+                    </a>
+                    <div class="smart-call-availability">
+                        <span class="smart-call-live-dot"></span>
+                        <span>Available 24/7 for emergencies</span>
                     </div>
                 </div>
 
-                <!-- Booking Card -->
-                <div class="booking-card">
-                    <div class="booking-steps-viewport">
-                        <!-- Step 1: Patient Info -->
-                        <div class="b-step active" id="bStep1">
-                            <div class="b-step-header">
-                                <div class="b-step-icon"><i class="fa-solid fa-user-pen"></i></div>
-                                <div>
-                                    <h3>Tell us about yourself</h3>
-                                    <p>We just need your name and phone number</p>
-                                </div>
-                            </div>
-                            <div class="b-step-body">
-                                <div class="b-field">
-                                    <label for="patientName"><i class="fa-solid fa-user"></i> Full Name</label>
-                                    <input type="text" id="patientName" class="b-input" placeholder="Enter your full name" autocomplete="name">
-                                    <span class="b-error" id="nameError"></span>
-                                </div>
-                                <div class="b-field">
-                                    <label for="patientPhone"><i class="fa-solid fa-mobile-screen"></i> Phone Number</label>
-                                    <div class="b-phone-input">
-                                        <span class="b-phone-prefix">+91</span>
-                                        <input type="tel" id="patientPhone" class="b-input" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[0-9]*" autocomplete="tel">
-                                    </div>
-                                    <span class="b-error" id="phoneError"></span>
-                                </div>
-                                <div class="b-field">
-                                    <label for="patientNotes"><i class="fa-solid fa-notes-medical"></i> Symptoms / Notes <span class="b-optional">(optional)</span></label>
-                                    <textarea id="patientNotes" class="b-input" rows="2" placeholder="Describe your symptoms or any special requests..."></textarea>
-                                </div>
-                            </div>
-                            <div class="b-step-footer">
-                                <div></div>
-                                <button class="b-btn b-btn-primary" id="step1Next" onclick="goToStep(2)">
-                                    Continue <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
+                <!-- Secondary Contact Options -->
+                <div class="smart-call-options">
+                    <a href="https://wa.me/918247442686?text=Hi%2C%20I%20want%20to%20book%20an%20appointment" target="_blank" rel="noopener noreferrer" class="smart-call-option glass-card">
+                        <div class="smart-option-icon" style="background: rgba(37,211,102,0.12); color: #25d366;">
+                            <i class="fa-brands fa-whatsapp"></i>
                         </div>
-
-                        <!-- Step 2: Department & Doctor -->
-                        <div class="b-step" id="bStep2">
-                            <div class="b-step-header">
-                                <div class="b-step-icon"><i class="fa-solid fa-hospital-user"></i></div>
-                                <div>
-                                    <h3>Choose your doctor</h3>
-                                    <p>Select a department, then pick your preferred doctor</p>
-                                </div>
-                            </div>
-                            <div class="b-step-body">
-                                <div class="b-dept-chips" id="deptChips">
-                                    <!-- Rendered by JS -->
-                                </div>
-                                <div class="b-doctors-list" id="doctorsGrid">
-                                    <div class="b-placeholder">
-                                        <i class="fa-solid fa-hand-pointer"></i>
-                                        <p>Select a department above to see available doctors</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="b-step-footer">
-                                <button class="b-btn b-btn-ghost" onclick="goToStep(1)">
-                                    <i class="fa-solid fa-arrow-left"></i> Back
-                                </button>
-                                <button class="b-btn b-btn-primary" id="step2Next" disabled onclick="goToStep(3)">
-                                    Continue <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
+                        <div class="smart-option-info">
+                            <h4>WhatsApp Us</h4>
+                            <p>Chat with our team on WhatsApp for quick assistance</p>
                         </div>
+                        <i class="fa-solid fa-arrow-right smart-option-arrow"></i>
+                    </a>
 
-                        <!-- Step 3: Date & Time -->
-                        <div class="b-step" id="bStep3">
-                            <div class="b-step-header">
-                                <div class="b-step-icon"><i class="fa-solid fa-clock"></i></div>
-                                <div>
-                                    <h3>Pick a date & time</h3>
-                                    <p>Choose when you'd like to visit</p>
-                                </div>
-                            </div>
-                            <div class="b-step-body">
-                                <div class="b-field">
-                                    <label for="dateSelect"><i class="fa-solid fa-calendar-day"></i> Select Date</label>
-                                    <input type="date" id="dateSelect" class="b-input" onchange="handleDateChange()">
-                                </div>
-                                <div class="b-slots-wrap" id="slotsContainer">
-                                    <div class="b-slots-section">
-                                        <div class="b-slots-label"><i class="fa-solid fa-sun"></i> Morning</div>
-                                        <div class="b-slots-grid" id="morningSlots"></div>
-                                    </div>
-                                    <div class="b-slots-section">
-                                        <div class="b-slots-label"><i class="fa-solid fa-cloud-sun"></i> Afternoon</div>
-                                        <div class="b-slots-grid" id="afternoonSlots"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="b-step-footer">
-                                <button class="b-btn b-btn-ghost" onclick="goToStep(2)">
-                                    <i class="fa-solid fa-arrow-left"></i> Back
-                                </button>
-                                <button class="b-btn b-btn-primary" id="step3Next" disabled onclick="goToStep(4)">
-                                    Continue <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
+                    <a href="mailto:cherishmultispeciality@gmail.com" class="smart-call-option glass-card">
+                        <div class="smart-option-icon" style="background: rgba(100,210,255,0.12); color: #64d2ff;">
+                            <i class="fa-solid fa-envelope"></i>
                         </div>
+                        <div class="smart-option-info">
+                            <h4>Email Us</h4>
+                            <p>cherishmultispeciality@gmail.com — we reply within 2 hours</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right smart-option-arrow"></i>
+                    </a>
 
-                        <!-- Step 4: OTP Verification & Confirm -->
-                        <div class="b-step" id="bStep4">
-                            <div class="b-step-header">
-                                <div class="b-step-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                                <div>
-                                    <h3>Verify & Confirm</h3>
-                                    <p>Review your booking and verify with OTP</p>
-                                </div>
-                            </div>
-                            <div class="b-step-body">
-                                <div class="b-review-card">
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-user"></i> Patient</div>
-                                        <div class="b-review-value" id="reviewPatient">—</div>
-                                    </div>
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-phone"></i> Phone</div>
-                                        <div class="b-review-value" id="reviewPhone">—</div>
-                                    </div>
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-stethoscope"></i> Doctor</div>
-                                        <div class="b-review-value" id="reviewDoctor">—</div>
-                                    </div>
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-hospital"></i> Department</div>
-                                        <div class="b-review-value" id="reviewDept">—</div>
-                                    </div>
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-calendar"></i> Date</div>
-                                        <div class="b-review-value" id="reviewDate">—</div>
-                                    </div>
-                                    <div class="b-review-row">
-                                        <div class="b-review-label"><i class="fa-solid fa-clock"></i> Time</div>
-                                        <div class="b-review-value" id="reviewTime">—</div>
-                                    </div>
-                                </div>
-
-                                <!-- OTP Section -->
-                                <div class="b-otp-section" id="otpSection">
-                                    <div class="b-otp-prompt">
-                                        <i class="fa-solid fa-sms"></i>
-                                        <div>
-                                            <p>We'll send a 4-digit OTP to <strong id="otpPhoneDisplay">+91 XXXXXXXXXX</strong></p>
-                                            <small>Standard SMS charges may apply</small>
-                                        </div>
-                                    </div>
-                                    <button class="b-btn b-btn-send-otp" id="sendOtpBtn" onclick="sendOTP()">
-                                        <i class="fa-solid fa-paper-plane"></i> Send OTP
-                                    </button>
-                                </div>
-
-                                <!-- OTP Input (hidden until OTP sent) -->
-                                <div class="b-otp-input-section hidden" id="otpInputSection">
-                                    <p class="b-otp-sent-msg"><i class="fa-solid fa-check-circle"></i> OTP sent to <strong id="otpSentPhone">+91 XXXXXXXXXX</strong></p>
-                                    <div class="b-otp-boxes">
-                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="0" autocomplete="one-time-code">
-                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="1">
-                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="2">
-                                        <input type="text" class="b-otp-box" maxlength="1" inputmode="numeric" data-index="3">
-                                    </div>
-                                    <span class="b-error" id="otpError"></span>
-                                    <div class="b-otp-actions">
-                                        <button class="b-btn-link" id="resendOtpBtn" onclick="resendOTP()" disabled>Resend OTP <span id="otpTimer">(30s)</span></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="b-step-footer">
-                                <button class="b-btn b-btn-ghost" onclick="goToStep(3)">
-                                    <i class="fa-solid fa-arrow-left"></i> Back
-                                </button>
-                                <button class="b-btn b-btn-confirm" id="confirmBookingBtn" disabled onclick="confirmBooking()">
-                                    <i class="fa-solid fa-check-circle"></i> Confirm Booking
-                                </button>
-                            </div>
+                    <div class="smart-call-option glass-card">
+                        <div class="smart-option-icon" style="background: rgba(255,214,10,0.12); color: #ffd60a;">
+                            <i class="fa-solid fa-clock"></i>
+                        </div>
+                        <div class="smart-option-info">
+                            <h4>Working Hours</h4>
+                            <p>Mon — Sat: 8:00 AM – 9:00 PM · Sunday: Emergency Only</p>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Security badge -->
-                <div class="b-security-badge">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Your data is encrypted & secure — we never share your information</span>
-                </div>
+            <div class="smart-call-trust">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>One call is all it takes — our team handles everything from scheduling to follow-ups</span>
             </div>
         </div>
     </section>
@@ -789,7 +631,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#departments">Departments</a></li>
                         <li><a href="#doctor-spotlight">Our Doctors</a></li>
-                        <li><a href="#booking">Book Appointment</a></li>
+                        <li><a href="#booking">Call Us</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
@@ -817,96 +659,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- ============ AUTH MODAL ============ -->
-    <div class="modal-overlay hidden" id="authModal">
-        <div class="modal glass-card auth-modal">
-            <button class="modal-close" onclick="closeAuthModal()" aria-label="Close">&times;</button>
-            <div class="auth-content" id="authContent">
-                <div class="auth-icon"><i class="fa-solid fa-user-shield"></i></div>
-                <h3>Sign In to Continue</h3>
-                <p>Sign in to book appointments and manage your health records securely.</p>
-                <button class="btn btn-google btn-lg" id="googleSignInBtn" onclick="handleGoogleSignIn()">
-                    <svg viewBox="0 0 24 24" width="20" height="20"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-                    Sign in with Google
-                </button>
-                <div class="hero-micro-copy" style="margin-top: 1rem;"><i class="fa-solid fa-lock"></i> Your health data is encrypted and secure</div>
-            </div>
-            <!-- Loading state -->
-            <div class="auth-loading hidden" id="authLoading">
-                <div class="skeleton-block" style="width: 60px; height: 60px; border-radius: 50%; margin: 0 auto 1rem;"></div>
-                <div class="skeleton-block" style="width: 180px; height: 20px; margin: 0 auto 0.8rem;"></div>
-                <div class="skeleton-block" style="width: 240px; height: 14px; margin: 0 auto 0.5rem;"></div>
-                <div class="skeleton-block" style="width: 200px; height: 14px; margin: 0 auto;"></div>
-                <p style="margin-top: 1.5rem; color: var(--text-muted); font-size: 0.85rem;">Signing you in securely...</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ============ APPOINTMENTS DASHBOARD MODAL ============ -->
-    <div class="modal-overlay hidden" id="appointmentsModal">
-        <div class="modal glass-card appointments-modal">
-            <button class="modal-close" onclick="closeAppointmentsDashboard()" aria-label="Close">&times;</button>
-            <div class="appointments-header">
-                <h3><i class="fa-solid fa-calendar-days"></i> My Appointments</h3>
-            </div>
-            <div class="appointments-body" id="appointmentsBody">
-                <!-- Rendered by JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- ============ BOOKING SUCCESS OVERLAY ============ -->
-    <div class="modal-overlay hidden" id="successOverlay">
-        <div class="modal glass-card success-modal">
-            <div class="success-animation" id="successAnimation">
-                <svg class="checkmark-svg" viewBox="0 0 100 100">
-                    <circle class="checkmark-circle" cx="50" cy="50" r="45" fill="none" stroke="#22c55e" stroke-width="3"/>
-                    <path class="checkmark-check" d="M30 50 L45 65 L70 35" fill="none" stroke="#22c55e" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </div>
-            <h3>Booking Confirmed!</h3>
-            <p class="text-muted">Your appointment has been successfully booked</p>
-            <div class="success-details-card">
-                <div class="success-detail-row">
-                    <span class="success-label"><i class="fa-solid fa-user-doctor"></i> Doctor</span>
-                    <strong id="successDoctor">—</strong>
-                </div>
-                <div class="success-detail-row">
-                    <span class="success-label"><i class="fa-solid fa-hospital"></i> Department</span>
-                    <strong id="successDept">—</strong>
-                </div>
-                <div class="success-detail-row">
-                    <span class="success-label"><i class="fa-solid fa-calendar-check"></i> Date</span>
-                    <strong id="successDate">—</strong>
-                </div>
-                <div class="success-detail-row">
-                    <span class="success-label"><i class="fa-solid fa-clock"></i> Time</span>
-                    <strong id="successTime">—</strong>
-                </div>
-                <div class="success-detail-row">
-                    <span class="success-label"><i class="fa-solid fa-user"></i> Patient</span>
-                    <strong id="successPatient">—</strong>
-                </div>
-            </div>
-            <div class="success-sms-note">
-                <i class="fa-solid fa-sms"></i>
-                <span>Confirmation SMS sent to your registered mobile number</span>
-            </div>
-            <button class="btn btn-accent" onclick="closeSuccessOverlay()" style="margin-top: 1.5rem; width: 100%;">
-                <i class="fa-solid fa-check"></i> Done
-            </button>
-        </div>
-    </div>
-
-    <!-- ============ CONFIRM TOOLTIP (RESCHEDULE/CANCEL) ============ -->
-    <div class="confirm-tooltip hidden" id="confirmTooltip">
-        <p id="confirmTooltipText">Are you sure?</p>
-        <div class="confirm-actions">
-            <button class="btn btn-sm btn-outline" onclick="cancelConfirmAction()">No</button>
-            <button class="btn btn-sm btn-accent" id="confirmYesBtn" onclick="executeConfirmAction()">Yes</button>
-        </div>
-    </div>
 
     <!-- ============ BACK TO TOP ============ -->
     <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
