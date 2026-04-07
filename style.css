@@ -2027,12 +2027,6 @@ a.smart-call-option:hover .smart-option-arrow {
     letter-spacing: 0.02em;
 }
 
-.footer-credit .fa-heart {
-    color: #ff453a;
-    font-size: 0.65rem;
-    animation: heartbeat 1.8s ease-in-out infinite;
-}
-
 .footer-credit a {
     color: rgba(255, 255, 255, 0.4);
     font-weight: 600;
@@ -2044,14 +2038,6 @@ a.smart-call-option:hover .smart-option-arrow {
 .footer-credit a:hover {
     color: #fff;
     border-bottom-color: #fff;
-}
-
-@keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    14% { transform: scale(1.2); }
-    28% { transform: scale(1); }
-    42% { transform: scale(1.15); }
-    56% { transform: scale(1); }
 }
 
 a.contact-card {
