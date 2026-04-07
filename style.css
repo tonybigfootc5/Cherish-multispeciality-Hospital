@@ -743,6 +743,12 @@ select:-webkit-autofill {
     gap: 12px;
 }
 
+.nav-actions .btn {
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    border-radius: 8px;
+}
+
 /* Hamburger */
 .hamburger {
     display: none;
