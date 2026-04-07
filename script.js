@@ -88,6 +88,11 @@ function initHeroVideoLoop() {
     const video = document.getElementById('heroVideo');
     if (!video) return;
 
+    // Fade in video once it starts playing to prevent poster flash
+    video.addEventListener('playing', () => {
+        video.classList.add('loaded');
+    }, { once: true });
+
     // Jump back to start just before the end to avoid the last-frame stutter
     video.addEventListener('timeupdate', () => {
         if (video.duration && video.currentTime > video.duration - 0.3) {
