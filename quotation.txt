@@ -1,0 +1,61 @@
+From: Web Development Services
+To: Cherish Multispeciality Hospital Website Owner
+Date: April 15, 2026
+Subject: Quotation and Invoice for Complete Website Development
+
+Dear Client,
+
+Thank you for choosing me to build the Cherish Multispeciality Hospital website from scratch. This quotation summarizes the full website development work, including design, implementation, content integration, and deployment preparation.
+
+Project Scope:
+- Full website design and development for Cherish Multispeciality Hospital.
+- Creation of the homepage, department pages, contact and booking sections, doctor spotlight, facilities, testimonials, and responsive user interface.
+- Implementation of interactive features such as mobile navigation, smooth scrolling, theme toggle, testimonial carousel, review section, and department filtering.
+- Optimized HTML, CSS, and JavaScript for modern browser support and responsive mobile viewing.
+- Integration of assets, brand imagery, icons, and content flow aligned with the hospital’s identity.
+- Git repository management, version control, and push to the remote origin branch.
+- Final verification of page structure, content, and user experience across key sections.
+
+Work Completed:
+1. Website structure, layout, and responsive design creation
+2. Homepage hero, doctor spotlight, services, and department sections
+3. Testimonial/review section replacement with screenshot-based review content
+4. Contact, booking, and call-to-action integration
+5. Mobile and desktop navigation, theme toggling, and accessibility support
+6. CSS styling, asset linkage, and visual polish
+7. JavaScript functionality and performance tuning
+8. Git staging, commit history, and push to remote repository
+
+Invoice Details:
+--------------------------------------------------------------------------------
+Description                                          | Quantity | Hourly Rate | Amount
+--------------------------------------------------------------------------------
+Complete website design and layout                   | 4.0 hrs  | ₹1,375/hr   | ₹5,500
+HTML/CSS development and responsive implementation   | 4.0 hrs  | ₹1,375/hr   | ₹5,500
+JavaScript interactivity and review integration      | 3.0 hrs  | ₹1,375/hr   | ₹4,125
+Content integration and review updates               | 2.0 hrs  | ₹1,375/hr   | ₹2,750
+Git workflow, repository management, and deployment  | 1.0 hr   | ₹1,375/hr   | ₹1,375
+Testing, quality assurance, and final verification    | 2.0 hrs  | ₹1,375/hr   | ₹2,750
+--------------------------------------------------------------------------------
+Total Payable                                        |          |             | ₹22,000
+
+Payment Terms:
+- Payment due within 7 days of invoice receipt.
+- Any additional revisions or new feature requests beyond this scope can be billed separately.
+
+Notes:
+- This quotation reflects the full website development effort from initial build through completion.
+- The site is prepared for live deployment; I can assist with final hosting or Vercel setup if needed.
+
+Terms & Consent:
+- I have completed this work using the information provided to me and the available brand context. Any missing or undisclosed hospital-specific details were inferred to ensure a professional and complete website experience.
+- Final responsibility for the accuracy of medical claims, hospital credentials, and service descriptions rests with the hospital administration. I have built and styled the website content based on the guidance and inputs shared during the project.
+- The website is delivered as a design and development service; any future updates involving detailed medical content, legal disclaimers, or patient-specific information should be reviewed and approved by the hospital before publishing.
+- By accepting this quotation, you acknowledge that the website was developed with the information available at the time and that additional verification may be required for official hospital materials.
+
+Please let me know if you would like this converted into a formal PDF invoice or if you want me to include bank/payment details.
+
+Thank you for the opportunity. I look forward to continuing to support the Cherish website.
+
+Sincerely,
+Web Development Services
