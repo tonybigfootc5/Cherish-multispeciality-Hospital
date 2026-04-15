@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     renderDepartments();
     initNavScroll();
     initSmoothScroll();
-    initStatsCounter();
     // Testimonials use pure CSS marquee, no JS init needed
     initDeptFilters();
     initBackToTop();
@@ -240,45 +239,6 @@ function initSmoothScroll() {
 function toggleMobileNav() {
     document.getElementById('navLinks').classList.toggle('open');
     document.getElementById('hamburger').classList.toggle('active');
-}
-
-// ==========================================
-// STATS COUNTER ANIMATION
-// ==========================================
-function initStatsCounter() {
-    const counters = document.querySelectorAll('.stat-number');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-
-    counters.forEach(counter => observer.observe(counter));
-}
-
-function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
-    const duration = 2000;
-    const start = performance.now();
-
-    function update(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        // Ease out quad
-        const eased = 1 - (1 - progress) * (1 - progress);
-        const current = Math.floor(eased * target);
-
-        el.textContent = current.toLocaleString('en-IN') + '+';
-
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        }
-    }
-
-    requestAnimationFrame(update);
 }
 
 // ==========================================

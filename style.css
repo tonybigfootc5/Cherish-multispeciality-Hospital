@@ -947,81 +947,6 @@ section:not(.hero) {
 }
 
 /* ================================================
-   STATS SECTION
-   ================================================ */
-.stats-section {
-    padding: 80px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.stats-bg-image {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.stats-bg-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.15;
-}
-
-.stats-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: var(--bg-body);
-    z-index: 0;
-}
-
-.stats-section > .container {
-    position: relative;
-    z-index: 1;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-}
-
-.stat-card {
-    text-align: center;
-    padding: 32px 20px;
-}
-
-.stat-icon {
-    width: 56px;
-    height: 56px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    background: var(--icon-bg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    color: var(--icon-color);
-}
-
-.stat-number {
-    font-family: var(--font-heading);
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: var(--text);
-    line-height: 1;
-    margin-bottom: 4px;
-    letter-spacing: -0.02em;
-}
-
-.stat-label {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* ================================================
    DEPARTMENTS SECTION
    ================================================ */
 .departments-section {
@@ -2790,18 +2715,12 @@ a.contact-card:hover {
         padding: 60px 0;
     }
 
-    .stats-section::before { padding: 60px 0; }
-
     .hero-content { padding: calc(var(--nav-height) + 24px) 0 60px; }
     .hero h1 { font-size: 2.2rem; }
     .hero-subtitle { font-size: 1rem; }
     .hero-actions { flex-direction: column; align-items: center; }
 
     .section-title { font-size: 2rem; }
-
-    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    .stat-card { padding: 24px 16px; }
-    .stat-number { font-size: 2rem; }
 
     .dept-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
     .dept-card-img { height: 160px; }
@@ -2885,10 +2804,6 @@ a.contact-card:hover {
     .hero h1 { font-size: 1.8rem; }
     .hero-subtitle { font-size: 0.9rem; }
     .section-title { font-size: 1.6rem; }
-
-    .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-    .stat-card { padding: 16px 12px; }
-    .stat-number { font-size: 1.6rem; }
 
     .dept-grid { grid-template-columns: 1fr; gap: 16px; }
     .dept-card-img { height: 180px; }
